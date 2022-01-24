@@ -34,6 +34,14 @@ function getLastDay(){
 
 getLastDay();
 
+function getToday(){
+    var today = new Date();
+    var dd =  today.getDate();
+    console.log("Today is " + dd);
+}
+
+getToday();
+
 // index can be any number from 1 to 7
 // function sets the start of the calendar accordingly
 
@@ -45,7 +53,7 @@ function setFirstDay(index){
 // function adds styling to buttons from given index
 
 function removeDays() {
-    let calendarDays = document.getElementById("calendar--day");
+    let calendarDays = document.getElementsByClassName("calendar--day");
     for (let i = 0; i < calendarDays.length; i++) {
         calendarDays[i].style.backgroundColor = "red";
     }
@@ -63,11 +71,7 @@ function setColorToRed(){
 }
 
 
-$("button").click(function(){
-    var fired_button = $(this).val();
-    alert(fired_button);
-    console.log(fired_button)
-})
+
 
 
 
