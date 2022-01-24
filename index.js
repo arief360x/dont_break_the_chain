@@ -12,13 +12,13 @@ var yy = today.getFullYear();
 
 function getFirstDay(){
     var date = new Date();
-    m = date.getMonth();
+    date.setFullYear(2022, 3, 1);
+    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
 
-    var firstDay = new Date(date.getFullYear(), date.getMonth + 1, 1);
 
-    var text_month = document.getElementById("try_month").textContent;
+    //var text_month = document.getElementById("try_month").textContent;
     
-    console.log("Text month" + text_month);
+    //console.log("Text month" + text_month);
 
-    console.log("first day  " + firstDay);
+    console.log("first day month " + date.getDay());
 }
