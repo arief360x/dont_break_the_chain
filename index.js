@@ -44,9 +44,17 @@ function setFirstDay(index){
 
 setFirstDay(getFirstDay());
 
+
 function setColorToRed(){
 
 }
+
+
+$("button").click(function(){
+    var fired_button = $(this).val();
+    alert(fired_button);
+    console.log(fired_button)
+})
 
 
 
