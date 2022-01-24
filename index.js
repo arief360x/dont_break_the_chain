@@ -1,4 +1,4 @@
-let month= ["0", "January", "February","March", "April", "May","June", "July", "August", "September", "October", "November", "December"];
+let month= ["January", "February","March", "April", "May","June", "July", "August", "September", "October", "November", "December"];
 
 //Get HTML month tag 1-12
 function getHtmlMonth(){
@@ -14,10 +14,25 @@ getHtmlMonth();
 function getFirstDay(){
     var date = new Date();
     date.setFullYear(2022, getHtmlMonth(), 1);
+
     var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    
     var firstDayIndex = firstDay.getDay();
     return firstDayIndex;
 }
+
+//Return the last day of the month tag
+function getLastDay(){
+    var date = new Date();
+    date.setFullYear(2022, getHtmlMonth(), 1);
+
+    var lastDay = new Date(date.getFullYear(), getHtmlMonth(), 0);
+
+    var lastDayIndex = lastDay.getDate();
+    console.table("last day " + lastDayIndex);
+}
+
+getLastDay();
 
 // index can be any number from 1 to 7
 // function sets the start of the calendar accordingly
@@ -28,3 +43,10 @@ function setFirstDay(index){
 }
 
 setFirstDay(getFirstDay());
+
+function setColorToRed(){
+
+}
+
+
+
