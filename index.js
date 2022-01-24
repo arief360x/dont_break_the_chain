@@ -21,7 +21,7 @@ function getFirstDay(){
     console.log("first day  " + firstDay);
 }
 
-setFirstDay(7);
+setFirstDay(5);
 
 // index can be any number from 1 to 7
 // function sets the start of the calendar accordingly
