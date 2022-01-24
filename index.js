@@ -44,17 +44,18 @@ function setFirstDay(index){
 
 // function adds styling to buttons from given index
 
-function removeDays() {
-    let calendarDays = document.getElementById("calendar--day");
-    for (let i = 0; i < calendarDays.length; i++) {
-        calendarDays[i].style.backgroundColor = "red";
+function removeDays(lastDay) {
+    const calendarDays = document.getElementsByClassName("calendar--day");
+    for (let i = lastDay; i <= 31 - 1; i++) {
+        calendarDays[i].style.display = "none";
+        console.log("removeDays work");
     }
 }
 
 
 setFirstDay(getFirstDay());
 
-removeDays();
+removeDays(29);
 setFirstDay(getFirstDay());
 
 function setColorToRed(){
