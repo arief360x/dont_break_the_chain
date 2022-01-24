@@ -42,6 +42,19 @@ function setFirstDay(index){
     console.log("First day is " + "works");
 }
 
+// function adds styling to buttons from given index
+
+function removeDays() {
+    let calendarDays = document.getElementById("calendar--day");
+    for (let i = 0; i < calendarDays.length; i++) {
+        calendarDays[i].style.backgroundColor = "red";
+    }
+}
+
+
+setFirstDay(getFirstDay());
+
+removeDays();
 setFirstDay(getFirstDay());
 
 

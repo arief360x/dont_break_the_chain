@@ -4,6 +4,12 @@
     
 }
 
+
+
+main ol .calendar--variable-days {
+    background-color: blue;
+}
+
 #calendar--first-day {
     background-color: blue;
 }
