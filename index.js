@@ -1,7 +1,6 @@
 var today = new Date();
-var htmld = document.getElementById("day");
-var htmlm = document.getElementById("month");
-var htmly = document.getElementById("year");
+
+
 
 let months = ['Jan', 'Feb', 'March', 'April', 'May'];
 
@@ -11,8 +10,15 @@ var yy = today.getFullYear();
 
 
 
-function changeColor(){
-    if(htmld == dd && true){
-    }
-    console.log(months[mm]);
+function getFirstDay(){
+    var date = new Date();
+    m = date.getMonth();
+
+    var firstDay = new Date(date.getFullYear(), date.getMonth + 1, 1);
+
+    var text_month = document.getElementById("try_month").textContent;
+    
+    console.log("Text month" + text_month);
+
+    console.log("first day  " + firstDay);
 }
