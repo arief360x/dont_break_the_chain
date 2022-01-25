@@ -5,21 +5,25 @@ function getHtmlMonth(){
      //Return the month's index
      var calendar_month = document.getElementById("current_month").textContent;
      var index = month.findIndex(month => month === calendar_month);
+     console.log(calendar_month, index);
      return index;
 }
 
 getHtmlMonth();
 
-//Get the 1st day of the month tag
-function getFirstDay(){
+//Get the day of the specified year, month and index
+function getDay(year, month, day){
     var date = new Date();
-    date.setFullYear(2022, getHtmlMonth(), 1);
+    date.setFullYear(year, month, day);
+    console.log(date);
 
     var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
     
     var firstDayIndex = firstDay.getDay();
     return firstDayIndex;
 }
+
+getDay(2022, 0, 28);
 
 //Return the last day of the month tag
 function getLastDay(){
@@ -34,6 +38,12 @@ function getLastDay(){
 
 getLastDay();
 
+function getToday(){
+    var today = new Date();
+    var dd =  today.getDate();
+    console.log("Today is " + dd);
+}
+
 // index can be any number from 1 to 7
 // function sets the start of the calendar accordingly
 
@@ -45,8 +55,8 @@ function setFirstDay(index){
 // function adds styling to buttons from given index
 
 function removeDays(lastDay) {
-    const calendarDays = document.getElementsByClassName("calendar--day");
-    for (let i = lastDay; i <= 31 - 1; i++) {
+    let calendarDays = document.getElementsByClassName("calendar--day");
+    for (let i = lastDay; i <= 30; i++) {
         calendarDays[i].style.display = "none";
         console.log("removeDays work");
     }
@@ -55,12 +65,7 @@ function removeDays(lastDay) {
 
 setFirstDay(getFirstDay());
 
-removeDays(29);
-setFirstDay(getFirstDay());
-
-function setColorToRed(){
-
-}
+removeDays(25);
 
 
 

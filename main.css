@@ -1,18 +1,55 @@
+:root {
+    
+}
+
+.calendar-days {
+    border: 1px solid red;
+    justify-content: space-between;
+}
+
 .calendar-days ol {
+    border: 1px solid red;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    grid-gap: 8px;
+    padding: 12px;
+    border-radius: 8px;
     
+
 }
 
 
+.calendar-days button {
+    border-radius: 8px;
+    height: 40px;
+    border: none;
+    min-width: 30px;
+    max-width: 100px;
+}
 
+.calendar-days button:hover {
+    background-color: darkgray;
+    cursor: pointer;
+}
+
+.calendar-days button:active {
+    background-color: lightgreen;
+}
+
+.calendar-days #active-day button  {
+    background-color: green;
+}
+
+
+.calendar--variable-days {
+    background-color: blue;
+    
+}
+    
 main ol .calendar--variable-days {
-    background-color: blue;
+    background-color:  blue;
 }
 
-#calendar--first-day {
-    background-color: blue;
+.active-day {
+    background-color: green;
 }
-    
-
-
