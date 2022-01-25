@@ -1,73 +1,131 @@
+/* adds CSS variables*/
 :root {
-    
+    --blue: #4682B4;
+    --blue-turquoise: #00CED1;
+    --gray-silver: #C0C0C0;
+    --green-yellow: #9ACD32;
+    --gray: #808080;
+    --white-smoke: #F5F5F5;
+    --pale-turquoise: #E0FFFF;
+    --light-gray: #DCDCDC;
+    --small: 1.4rem;
+    --regular: 1.6;
+    --big: 2.4rem;
 }
 
+/* sets 1.0rem to 10px (relative) */
 html {
     font-size: 62.5%;
 }
 
+/* sets font size to 16px with REM */
+/* border-box set up */
 body {
     font-size: 1.6rem;
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+    
+}
+/* aligns items vertically */
+main {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: var(--light-gray);
 }
 
-.calendar-days {
-    border: 1px solid blue;
-    justify-content: space-between;
+/* container of the calendar */
+/* align content using flexbox */
+.calendar-container {
+    border: 4px solid var(--blue);
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
-    align-content: center;
     min-width: 300px;
     max-width: 600px;
-    margin: auto;
+    margin: 0 auto;
+    background-color: var(--white-smoke);
+
+
 }
 
-.calendar-days span {
+/* calendar header */
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: var(--big);
+    height: 100px;
+    background-color: var(--blue);
+    border-radius: 12px 12px 0px 0px;
+    border: none;
+    color: var(--white-smoke);
+}
+
+
+#current_month #current_year {
+    font-weight: bold;
+}
+
+/* calendar header */
+.calendar-header label,input {
+    font-size: var(--small);
+}
+
+/* aligns days of the week to the center */
+.days-week-container {
     text-align: center;
+    align-items: center;
 }
 
-.calendar-days ol {
-    border: 1px solid red;
+/* aligns elements of the calendar in 7 columns */
+/* adds a gap between all items */
+.days-week-container, .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 8px;
+    margin: 0;
     padding: 12px;
-    border-radius: 8px;
+    font-size: var(--regular);
 }
 
 
+/* styles for days of the month (buttons) */
 .calendar-days button {
     border-radius: 8px;
     height: 40px;
     border: none;
     min-width: 30px;
     max-width: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: var(--regular);
+    background-color: var(--gray-silver);
+    font-weight: bold;
+
 }
 
+/* when mouse hovers button changes color */
 .calendar-days button:hover {
-    background-color: darkgray;
+    background-color: var(--gray);
     cursor: pointer;
 }
 
-.calendar-days button:active {
-    background-color: lightgreen;
+/* after being clicked changes color */
+.calendar-days button:focus {
+    background-color: var(--green-yellow);
+    cursor: pointer;
 }
 
-.calendar-days #active-day button  {
-    background-color: green;
+/* styles  added to the first day of the month */
+#calendar-start {
+    background-color: var(--blue-turquoise);
 }
 
-
-.calendar--variable-days {
-    background-color: blue;
-    
-}
-    
-main ol .calendar--variable-days {
-    background-color:  blue;
-}
-
-.active-day {
-    background-color: green;
+/* first day ef the following month */
+#calendar-end {
+    background-color: var(--gray);
 }
