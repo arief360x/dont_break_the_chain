@@ -1,42 +1,52 @@
-let month= ["January", "February","March", "April", "May","June", "July", "August", "September", "October", "November", "December"];
+//Months array
+let MONTH_ARRAY= ["January", "February","March", "April", "May","June", "July", "August", "September", "October", "November", "December"];
 
-//Get HTML month tag 1-12
-function getHtmlMonth(){
-     //Return the month's index
-     var calendar_month = document.getElementById("current_month").textContent;
-     var index = month.findIndex(month => month === calendar_month);
-     console.log(calendar_month, index);
+//Global variable for month from HTML tag
+let CALENDAR_MONTH = document.getElementById("current_month").textContent;
+
+//Global variable for year from HTML tag
+let CALENDAR_YEAR = document.getElementById("current_year").textContent;
+
+//Get HTML month tag, index start from 0
+function getHtmlMonthIndex(month){
+     var index = MONTH_ARRAY.findIndex(MONTH_ARRAY => MONTH_ARRAY === month);
+     //console.log("getHtmlMonthIndex " + index)
      return index;
 }
 
-getHtmlMonth();
-
-//Get the day of the specified year, month and index
-function getDay(year, month, day){
-    var date = new Date();
-    date.setFullYear(year, month, day);
-    console.log(date);
-
-    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-    
-    var firstDayIndex = firstDay.getDay();
-    return firstDayIndex;
+//Return the day's index(start from 0) with the argument year = normal, month = start from 0, day = normal
+function getDayIndex(year, month, day){
+    var full_date = new Date();
+    full_date.setFullYear(year, month, day);
+    res = full_date.getDay();
+    console.log("getDay " + res);
+    return res;
 }
 
-getDay(2022, 0, 28);
+//Using getDayIndex() for finding the 1st day of the selection month
+//getDayIndex(2022, getHtmlMonthIndex(CALENDAR_MONTH), 1);
 
-//Return the last day of the month tag
-function getLastDay(){
+
+//Return the last day of the month(month argument start with 0), return real date
+function getLastDay(year, month){
     var date = new Date();
-    date.setFullYear(2022, getHtmlMonth(), 1);
+    date.setFullYear(year, month ,1);
+    var lastDay = new Date(date.getFullYear(), (date.getMonth() + 1), 0);
 
-    var lastDay = new Date(date.getFullYear(), getHtmlMonth(), 0);
-
-    var lastDayIndex = lastDay.getDate();
-    console.table("last day " + lastDayIndex);
+    lastDay = lastDay.getDate();
+    console.table("last day " + lastDay);
+    return lastDay;
 }
 
-getLastDay();
+//getLastDay(2022,getHtmlMonthIndex(CALENDAR_MONTH));
+
+function getToday(){
+    var today = new Date();
+    var dd =  today.getDate();
+    //console.log("Today is " + dd);
+    return dd;
+}
+//getToday();
 
 function getToday(){
     var today = new Date();
@@ -55,17 +65,20 @@ function setFirstDay(index){
 // function adds styling to buttons from given index
 
 function removeDays(lastDay) {
-    let calendarDays = document.getElementsByClassName("calendar--day");
-    for (let i = lastDay; i <= 30; i++) {
+    const calendarDays = document.getElementsByClassName("calendar--day");
+    for (let i = lastDay; i < 31 ; i++) {
         calendarDays[i].style.display = "none";
         console.log("removeDays work");
     }
 }
 
 
-setFirstDay(getFirstDay());
+setFirstDay(getDayIndex(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH),1));
 
-removeDays(25);
+removeDays(getLastDay(CALENDAR_YEAR, getHtmlMonthIndex(CALENDAR_MONTH)));
+
+
+
 
 
 

@@ -2,9 +2,29 @@
     
 }
 
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    margin: 0;
+}
+
 .calendar-days {
-    border: 1px solid red;
+    border: 1px solid blue;
     justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    min-width: 300px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.calendar-days span {
+    text-align: center;
 }
 
 .calendar-days ol {
@@ -14,8 +34,6 @@
     grid-gap: 8px;
     padding: 12px;
     border-radius: 8px;
-    
-
 }
 
 
