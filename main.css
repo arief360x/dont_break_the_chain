@@ -111,8 +111,8 @@ main {
 }
 
 /* after being clicked changes color */
-.calendar-days a::after {
-    color: blue;
+.calendar-days a:active {
+    background-color: var(--green-yellow);
 }
 
 /* styles  added to the first day of the month */
