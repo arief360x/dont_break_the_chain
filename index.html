@@ -19,17 +19,14 @@
 <body>
     <main>
         <div class="calendar-container">
+
+
             <div class="calendar-header">
                 <!-- Current month and date -->
                 <div>
                     <span id="current_month">February</span>
                     <span id="current_year">2024</span> 
                 </div>
-                <!-- testing different entry type -->
-                <div>
-                    <label for="month-year">Choose a date</label>
-                    <input id="month-year" type="month" name="month-year">
-                </div>        
             </div>
             
             <!-- days of the week -->
@@ -42,13 +39,31 @@
                 <span>Friday</span>
                 <span>Saturday</span>
             </ol>
+
+            <!-- days of the week for mobile -->
+            <ol class="days-week-container">
+                <span>S</span>
+                <span>M</span>
+                <span>T</span>
+                <span>W</span>
+                <span>T</span>
+                <span>F</span>
+                <span>S</span>
+            </ol>
            
             <!-- creates a container for styling and a start and end "anchor" for alignment -->
             <ol class="calendar-days">
-                <button id="calendar-start">1</button>
-                <button id="calendar-end">1</button>
+                <a id="calendar-start">1</a>
+                <a id="calendar-end">1</a>
             </ol>
         </div>
+
+        <!-- testing different entry type
+        <div>
+            <span>Testing new entry type. (not set up yet) </span>
+            <label for="month-year">Choose a date</label>
+            <input id="month-year" type="month" name="month-year">
+        </div>   -->
     
     </main>
     

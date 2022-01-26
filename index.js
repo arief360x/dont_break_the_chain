@@ -66,7 +66,7 @@ function removeDays(lastDay) {
 
 
 // function adds HTML element to addElementToScreen before ElementID
-// gets ElementID as starting point and HTML text is added before
+// gets ElementID as reference point and HTML text is added before anchor
 function addElementToScreen (ElementID, HTMLText) {
     document.getElementById(ElementID).insertAdjacentHTML("beforebegin",HTMLText);
     console.log("Added ", HTMLText, "to ", ElementID);
@@ -76,7 +76,7 @@ function addElementToScreen (ElementID, HTMLText) {
 // given an first day and last day draws days with numbers between first and last
 function addDaysToCalendar (firstDay, lastDay) {
     for (let i = firstDay; i <= lastDay ; i++) {
-        let HTMLText = "<button>" + i + "</button>";
+        let HTMLText = "<a>" + i + "</a>";
         addElementToScreen("calendar-end",HTMLText);
         console.log("print button works");
     }
