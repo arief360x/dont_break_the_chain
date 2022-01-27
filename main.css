@@ -32,7 +32,7 @@ body {
 main {
     display: grid;
     place-items: center;
-    height: 100vh;
+    height: 150vh;
     background-color: var(--light-gray);
 }
 
@@ -47,8 +47,7 @@ main {
     max-width: 600px;
     margin: 0 auto;
     background-color: var(--white-smoke);
-
-
+    margin: 12px;
 }
 
 /* calendar header */
@@ -125,16 +124,13 @@ main {
     background-color: var(--green-yellow);
 }
 
-/* styles  added to the first day of the month
-#calendar-start {
-    background-color: var(--blue-turquoise);
-} */
-
-
-/* first day ef the following month
-#calendar-end {
-    background-color: var(--gray);
-} */
-
-/* note for future self */
-/* add a container for days "a" then style it */
+.display {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--green-yellow);
+    padding: 24px;
+    border-radius: 12px;
+    width: 200px;
+    height: 200px;
+    text-align: left;
+}
