@@ -1,60 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- header -->
+<!-- loaded before body -->
+<!-- added CSS and DM Sans font -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Don't Break The Chain</title>
     <link rel="stylesheet" href="/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/doodle/48/000000/apple-calendar--v2.png">
+
 </head>
+
 <body>
-
     <main>
-        <section class="calendar-container">
-            <span class="calendar-month">Months</span>
-            <div class="calendar-days">
-               
-                <span id="current_month">December</span>
-                <span id="current_year">2022</span>
-                <ol>
-                    <button id="calendar--first-day" class="calendar--day" onclick="daySelected()">1</button>
-                    <button class="calendar--day" onclick="daySelected()">2</button>
-                    <button class="calendar--day" onclick="daySelected()">3</button>
-                    <button class="calendar--day" onclick="daySelected()">4</button>
-                    <button class="calendar--day" onclick="daySelected()">5</button>
-                    <button class="calendar--day" onclick="daySelected()">6</button>
-                    <button class="calendar--day" onclick="daySelected()">7</button>
-                    <button class="calendar--day" onclick="daySelected()">8</button>
-                    <button class="calendar--day" onclick="daySelected()">9</button>
-                    <button class="calendar--day" onclick="daySelected()">10</button>
-                    <button class="calendar--day" onclick="daySelected()">11</button>
-                    <button class="calendar--day" onclick="daySelected()">12</button>
-                    <button class="calendar--day" onclick="daySelected()">13</button>
-                    <button class="calendar--day" onclick="daySelected()">14</button>
-                    <button class="calendar--day" onclick="daySelected()">15</button>
-                    <button class="calendar--day" onclick="daySelected()">16</button>
-                    <button class="calendar--day" onclick="daySelected()">17</button>
-                    <button class="calendar--day" onclick="daySelected()">18</button>
-                    <button class="calendar--day" onclick="daySelected()">19</button>
-                    <button class="calendar--day" onclick="daySelected()">20</button>
-                    <button class="calendar--day" onclick="daySelected()">21</button>
-                    <button class="calendar--day" onclick="daySelected()">22</button>
-                    <button class="calendar--day" onclick="daySelected()">23</button>
-                    <button class="calendar--day" onclick="daySelected()">24</button>
-                    <button class="calendar--day" onclick="daySelected()">25</button>
-                    <button class="calendar--day" onclick="daySelected()">26</button>
-                    <button class="calendar--day" onclick="daySelected()">27</button>
-                    <button class="calendar--day" onclick="daySelected()">28</button>
-                    <button class="calendar--day" onclick="daySelected()" class="calendar--variable-day">29</button>
-                    <button class="calendar--day" onclick="daySelected()" class="calendar--variable-day">30</button>
-                    <button class="calendar--day" onclick="daySelected()" class="calendar--variable-day">31</button>
-    
-                </ol>
-            </div>
-        </section>
-    </main>
-    <script type="text/javascript" src="index.js"></script>
-</body>
+        <div class="calendar-container">
 
+
+            <div class="calendar-header">
+                <!-- Current month and date -->
+                <div>
+                    <span id="current_month">February</span>
+                    <span id="current_year">2022</span> 
+                </div>
+            </div>
+            
+            <!-- days of the week -->
+            <ol class="days-week-container">
+                <span>Sunday</span>
+                <span>Monday</span>
+                <span>Tuesday</span>
+                <span>Wednesday</span>
+                <span>Thursday</span>
+                <span>Friday</span>
+                <span>Saturday</span>
+            </ol>
+
+            <!-- days of the week for mobile -->
+            <ol class="days-week-container">
+                <span>S</span>
+                <span>M</span>
+                <span>T</span>
+                <span>W</span>
+                <span>T</span>
+                <span>F</span>
+                <span>S</span>
+            </ol>
+           
+            <!-- creates a container for styling and a start and end "anchor" for alignment -->
+            <ol class="calendar-days">
+                <a id="calendar-start">1</a>
+                <a id="calendar-end">1</a>
+            </ol>
+        </div>
+
+        <!-- testing different entry type
+        <div>
+            <span>Testing new entry type. (not set up yet) </span>
+            <label for="month-year">Choose a date</label>
+            <input id="month-year" type="month" name="month-year">
+        </div>   -->
+    
+    </main>
+    
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
 </html>
