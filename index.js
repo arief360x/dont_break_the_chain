@@ -51,8 +51,8 @@ function getToday(){
 // index can be any number from 1 to 7
 // function sets the start of the calendar accordingly
 function setFirstDay(index){
-    document.getElementById("calendar-start").style.gridColumnStart = index;
-    console.log("First day is " + "works");
+    document.getElementById("calendar-start").style.gridColumnStart = index + 1;
+    console.log("First day alignment works");
 }
 
 // function adds styling to buttons from given index
@@ -76,7 +76,7 @@ function addElementToScreen (ElementID, HTMLText) {
 // given an first day and last day draws days with numbers between first and last
 function addDaysToCalendar (firstDay, lastDay) {
     for (let i = firstDay; i <= lastDay ; i++) {
-        let HTMLText = "<a>" + i + "</a>";
+        let HTMLText = '<a><section class="calendar-text">'+ i +'</section></a>';
         addElementToScreen("calendar-end",HTMLText);
         console.log("print button works");
     }
@@ -88,7 +88,6 @@ setFirstDay(getDayIndex(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH),1));
 addDaysToCalendar (2,getLastDay(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH,1)));
 
 // gets date from input and returns YYYY-MM
-
 function getDateInput(){
     let choosenMonth = document.querySelector('input[type="month"]');
     console.log("hello",choosenMonth);

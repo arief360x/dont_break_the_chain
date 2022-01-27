@@ -110,18 +110,31 @@ main {
     cursor: pointer;
 }
 
+/* Generates text container */
+.calendar-days .calendar-text { 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: inherit;
+   margin-top: 0;
+   box-sizing: border-box;
+}
+
 /* after being clicked changes color */
 .calendar-days a:active {
     background-color: var(--green-yellow);
 }
 
-/* styles  added to the first day of the month */
+/* styles  added to the first day of the month
 #calendar-start {
     background-color: var(--blue-turquoise);
-}
+} */
 
 
-/* first day ef the following month */
+/* first day ef the following month
 #calendar-end {
     background-color: var(--gray);
-}
+} */
+
+/* note for future self */
+/* add a container for days "a" then style it */
