@@ -35,12 +35,8 @@ function getLastDay(year, month) {
 }
 
 //getLastDay(2022,getHtmlMonthIndex(CALENDAR_MONTH));
-<<<<<<< HEAD
 
-function getToday() {
-=======
 function getToday(){
->>>>>>> 3391cad9b39afdebe072c41f11d929fe24023b6f
     var today = new Date();
     var dd = today.getDate();
     //console.log("Today is " + dd);
@@ -55,7 +51,9 @@ function getToday(){
 
 // index can be any number from 1 to 7
 // function sets the start of the calendar accordingly
+// index should be added by 1
 function setFirstDay(index){
+    index++;
     document.getElementById("calendar-start").style.gridColumnStart = index;
     console.log("First day is " + "works");
 }
