@@ -64,10 +64,10 @@ function addElementToScreen (ElementID, HTMLText, beforeAfter) {
 
 // given an first day and last day 
 // draws days with numbers between first and last
-function addDaysToCalendar (firstDay, lastDay) {
+function addDaysToCalendar (firstDay, lastDay, classes) {
     // prints rest of elements up to lastDay given
     for (let i = firstDay; i <= lastDay ; i++) {
-        let HTMLText = '<a><section class="calendar-text">'+ i +'</section></a>';
+        let HTMLText = '<a><section class="calendar-text">' + "" + i + '</section></a>';
         addElementToScreen("calendar-container",HTMLText,"beforeend");
         console.log("calendar day added");
     }
@@ -84,7 +84,7 @@ function displayVariables(){
 // draws previous, current and next month
 function drawCalendar(){
     // adds days for previous month
-    addDaysToCalendar(lastDayPreviousMonth-(firstDayMonthIndex-1),lastDayPreviousMonth);
+    addDaysToCalendar(lastDayPreviousMonth-(firstDayMonthIndex-1),lastDayPreviousMonth,'class="calendar-disabled"');
     // adds days for current month
     addDaysToCalendar(1,calendarLastDay);
     // adds days for next month
