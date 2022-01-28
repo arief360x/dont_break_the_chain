@@ -23,10 +23,19 @@
 
             <div class="calendar-header">
                 <!-- Current month and date -->
-                <div>
-                    <span id="current-month">February</span>
-                    <span id="current-year">2024</span> 
-                </div>
+                <!-- initial date and month gets setup with JS setUpInitialDate() -->
+               
+                    <button class=calendar--left-button>
+                        <a><</a>
+                    </button>
+                    <section>
+                        <span id="current-month"></span>
+                        <span id="current-year"></span>
+                    </section>
+                    <button class="calendar--right-button" onclick="nextMonth()">
+                       <a>></a>
+                    </button>
+                
             </div>
             
             <!-- days of the week -->
