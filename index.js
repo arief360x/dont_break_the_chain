@@ -1,26 +1,23 @@
 //Months array
-let MONTH_ARRAY = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 
-//Global variable for month from HTML tag
-let CALENDAR_MONTH = document.getElementById("current-month-display").textContent;
-
-//Global variable for year from HTML tag
-let CALENDAR_YEAR = document.getElementById("current-year-display").textContent;
+//Sets global variables for future
+let currentMonth = "";
+let currentYear = "";
+let counter = "";
 
 // updates header displayed given a month and a year 
-
 function updateDisplay(month, year) {
     document.getElementById("current-month-display").innerText = month;
     document.getElementById("current-year-display").innerText = year;
 }
 
 
-
-//Get HTML month tag, index start from 0
-function getHtmlMonthIndex(month) {
-    var index = MONTH_ARRAY.findIndex(MONTH_ARRAY => MONTH_ARRAY === month);
-    //console.log("getHtmlMonthIndex " + index)
+//Returns index (0-11) given a month
+function getMonthIndex(month) {
+    var index = monthArray.findIndex(monthArray => monthArray === month);
+    //console.log("getMonthIndex " + index)
     return index;
 }
 
@@ -44,19 +41,11 @@ function getLastDay(year, month) {
     return lastDay;
 }
 
-//getLastDay(2022,getHtmlMonthIndex(CALENDAR_MONTH));
-
+// gets today's date and returns the day
 function getToday(){
     var today = new Date();
     var dd = today.getDate();
-    //console.log("Today is " + dd);
     return dd;
-}
-//getToday();
-function getToday(){
-    var today = new Date();
-    var dd =  today.getDate();
-    console.log("Today is " + dd);
 }
 
 // index can be any number from 1 to 7
@@ -97,8 +86,8 @@ function addDaysToCalendar (firstDay, lastDay) {
 
 function main(){
     // calendar display function
-    setFirstDay(getDayIndex(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH),1));
-    addDaysToCalendar (2,getLastDay(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH,1)));
+    setFirstDay(getDayIndex(currentYear,getMonthIndex(currentMonth),1));
+    addDaysToCalendar (2,getLastDay(currentYear,getMonthIndex(currentMonth,1)));
 }
 
 
@@ -111,19 +100,22 @@ function getDateInput(){
     return choosenMonth.value;
 }
 
-// removeDays(getLastDay(CALENDAR_YEAR, getHtmlMonthIndex(CALENDAR_MONTH)));
+removeDays(getLastDay(currentYear, getMonthIndex(currentMonth)));
 
-// switches month displayed for a given index (0-11)
-function switchMonth(indexMonth){
-    let display = "June";
-    let CALENDAR_MONTH = document.getElementById("current-month-display").textContent;
+// switches current month (0-11) and year YYYY and updates variables
+function switchMonth(indexMonth,year){
     
+    // sets new month as global variable
+    currentMonth = monthArray[indexMonth];
+    // updates display month
+    document.getElementById("current-month-display").textContent = currentMonth;
+
+    currentYear = year;
+    // updates year display
+    document.getElementById("current-year-display").innerText = year;
 
 }
 
 
+switchMonth(1,2028);
 main();
-// switchMonth(4);
-
-updateDisplay("Hello","Thisworks");
-drawCalendar();
