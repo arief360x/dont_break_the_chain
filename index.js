@@ -6,8 +6,6 @@ let calendarMonth = "";
 let calendarYear = "";
 let counter = "";
 
-
-
 // gets today's date and returns the day
 function getToday(){
     var today = new Date();
@@ -78,10 +76,10 @@ function addElementToScreen (ElementID, HTMLText) {
 
 // given an first day and last day 
 // draws days with numbers between first and last
-function addDaysToCalendar (firstDay, lastDay) {
+function addDaysToCalendar (firstDay, lastDay,style) {
     // prints rest of elements up to lastDay given
     for (let i = firstDay; i <= lastDay ; i++) {
-        let HTMLText = '<a><section class="calendar-text">' + "" + i + '</section></a>';
+        let HTMLText = '<a><section class="calendar-text '+ style +'">' + i + '</section></a>';
         addElementToScreen("calendar-container",HTMLText);
         console.log("🚀 ~ file: index.js ~ line 103 ~ addDaysToCalendar ~ i", i)
     }
@@ -112,17 +110,17 @@ function drawCalendar(){
 
     // algorithm for calculating month days
     // adds days for previous month
-    addDaysToCalendar(lastDayPreviousMonth-(firstDayMonthIndex-1),lastDayPreviousMonth);
+    addDaysToCalendar(lastDayPreviousMonth-(firstDayMonthIndex-1),lastDayPreviousMonth,"calendar-days-disabled");
     // adds days for current month
-    addDaysToCalendar(1,calendarLastDay);
+    addDaysToCalendar(1,calendarLastDay,);
     // adds days for next month
     // uses index of current month last date and gets remaning days
-    addDaysToCalendar(1,Math.abs((monthLastDayIndex)-6));
+    addDaysToCalendar(1,Math.abs((monthLastDayIndex)-6),"calendar-days-disabled");
 
     // VARIABLES >>> FOR DEBUGGING PURPOSES
-    let variables = "<b>Variables </b>(for debugging purposes)</b> <br> <br> Month: <b>" + calendarMonth + "</b><br>Year: <b>" + calendarYear + "</b><br> Last day: <b>" + calendarLastDay + "</b><br> Month Index (0-11): <b>" + calendarMonthIndex + "</b><br> First day index (0-6): <b>" + firstDayMonthIndex + "</b><br> Last day index (0-6): <b>" + monthLastDayIndex + "</b><br> Previous month last day:  <b>" + lastDayPreviousMonth + "</b><br>"; 
+    let variables = "Month: <b>" + calendarMonth + "</b><br>Year: <b>" + calendarYear + "</b><br> Last day: <b>" + calendarLastDay + "</b><br> Month Index (0-11): <b>" + calendarMonthIndex + "</b><br> First day index (0-6): <b>" + firstDayMonthIndex + "</b><br> Last day index (0-6): <b>" + monthLastDayIndex + "</b><br> Previous month last day:  <b>" + lastDayPreviousMonth + "</b><p>"; 
     document.getElementById("display-variables").insertAdjacentHTML("beforeend", variables);
-    console.log("🚀 ~ file: index.js ~ line 117 ~ displayVariables ~ variables", variables)
+    console.log("🚀 ~ file: index.js ~ line 117 ~ displayVariables ~ variables", [calendarMonth,calendarYear,calendarLastDay,calendarMonthIndex,firstDayMonthIndex,monthLastDayIndex,lastDayPreviousMonth]);
 }
 
 // switches current month (0-11) and year YYYY and updates variables

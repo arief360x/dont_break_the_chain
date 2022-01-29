@@ -4,13 +4,14 @@
     --blue-turquoise: #00CED1;
     --gray-silver: #C0C0C0;
     --green-yellow: #9ACD32;
+    --dark-green: #6B8E23;
     --gray: #808080;
     --white-smoke: #F5F5F5;
     --pale-turquoise: #E0FFFF;
     --light-gray: #DCDCDC;
     --small: 1.4rem;
     --regular: 1.6;
-    --big: 3.2rem;
+    --big: 4.0rem;
 }
 
 /* sets 1.0rem to 10px (relative) */
@@ -30,9 +31,10 @@ body {
 }
 /* aligns items vertically */
 main {
-    display: grid;
-    place-items: center;
-    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     background-color: var(--light-gray);
 }
 
@@ -41,11 +43,8 @@ main {
 .calendar-container {
     border: 4px solid var(--blue);
     border-radius: 16px;
-    display: flex;
-    flex-direction: column;
     min-width: 300px;
     max-width: 600px;
-    margin: 0 auto;
     background-color: var(--white-smoke);
     margin: 12px;
 }
@@ -64,6 +63,16 @@ main {
     color: var(--white-smoke);
     padding: 0 40px;
     
+}
+
+.calendar-header .calendar-header-text-container {
+    display: flex;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    /* border: 1px solid var(--white-smoke); */
+    height: 50px;
 }
 
 .calendar-header button {
@@ -137,24 +146,36 @@ main {
 
 /* when mouse hovers day changes color */
 .calendar-days .calendar-text:hover {
-    background-color: var(--gray);
+    background-color: var(--green-yellow);
     cursor: pointer;
+    color: var(--white-smoke);
 }
 
 /* after being clicked changes color */
 .calendar-days .calendar-text:active {
-    background-color: var(--green-yellow);
+    background-color: var(--dark-green);
+}
+
+/* styling for disabled days */
+.calendar-days .calendar-days-disabled {
+    color: var(--gray-silver);
+    background-color: var(--light-gray);
+}
+
+/* styling for disabled days when hovering*/
+.calendar-days .calendar-days-disabled:hover {
+    color: var(--gray-silver);
+    background-color: var(--light-gray);
+    cursor: default;
 }
 
 /* adds a log at the bottom of the screen */
 .display {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--green-yellow);
+    background-color: var(--pale-turquoise);
     padding: 24px;
     border-radius: 12px;
     width: 200px;
     height: auto;
     text-align: left;
+    margin: 24px auto;
 }
-

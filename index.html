@@ -28,7 +28,7 @@
                     <button class=calendar--left-button onclick="previousMonth()">
                         <a><</a>
                     </button>
-                    <section>
+                    <section class="calendar-header-text-container">
                         <span id="current-month-display"></span>
                         <span id="current-year-display"></span>
                     </section>
@@ -62,21 +62,13 @@
             <!-- creates a container for styling and a start "anchor" for alignment -->
            
             <ol id="calendar-container" class="calendar-days">
-                
             </ol>
         </div>
 
+        <!-- display for varibles DEBUGGING -->
         <div class="display">
-            <div id="display-variables"></div>
+            <div id="display-variables"><b>Variables</b>(for debugging purposes)</b><p></div>
         </div>
-
-        <!-- testing different entry type
-        <div>
-            <span>Testing new entry type. (not set up yet) </span>
-            <label for="month-year">Choose a date</label>
-            <input id="month-year" type="month" name="month-year">
-        </div>   -->
-    
     </main>
     
     <script type="text/javascript" src="index.js"></script>
