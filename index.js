@@ -83,12 +83,14 @@ function addDaysToCalendar (firstDay, lastDay) {
         addElementToScreen("calendar-end",HTMLText);
         console.log("print button works");
     }
+} 
+
+function main(){
+    // calendar display function
+    setFirstDay(getDayIndex(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH),1));
+    addDaysToCalendar (2,getLastDay(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH,1)));
 }
 
-
-// calendar display function
-setFirstDay(getDayIndex(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH),1));
-addDaysToCalendar (2,getLastDay(CALENDAR_YEAR,getHtmlMonthIndex(CALENDAR_MONTH,1)));
 
 // gets date from input and returns YYYY-MM
 
@@ -99,4 +101,13 @@ function getDateInput(){
     return choosenMonth.value;
 }
 
-removeDays(getLastDay(CALENDAR_YEAR, getHtmlMonthIndex(CALENDAR_MONTH)));
+// removeDays(getLastDay(CALENDAR_YEAR, getHtmlMonthIndex(CALENDAR_MONTH)));
+
+// switches month displayed for a given index (0-11)
+function switchMonth(indexMonth){
+    calendarMonth = MONTH_ARRAY[indexMonth];
+    document.getElementById("current_month").innerHTML = calendarMonth;
+
+}
+main();
+switchMonth(0);
