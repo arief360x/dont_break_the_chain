@@ -3,8 +3,8 @@ let monthArray = ["January", "February", "March", "April", "May", "June", "July"
 
 
 //Sets global variables for future
-let currentMonth = "";
-let currentYear = "";
+let calendarMonth = "";
+let calendarYear = "";
 let counter = "";
 
 // updates header displayed given a month and a year 
@@ -86,8 +86,8 @@ function addDaysToCalendar (firstDay, lastDay) {
 
 function main(){
     // calendar display function
-    setFirstDay(getDayIndex(currentYear,getMonthIndex(currentMonth),1));
-    addDaysToCalendar (2,getLastDay(currentYear,getMonthIndex(currentMonth,1)));
+    setFirstDay(getDayIndex(calendarMonth,getMonthIndex(calendarMonth),1));
+    addDaysToCalendar (2,getLastDay(calendarMonth,getMonthIndex(calendarMonth,1)));
 }
 
 
@@ -100,22 +100,17 @@ function getDateInput(){
     return choosenMonth.value;
 }
 
-removeDays(getLastDay(currentYear, getMonthIndex(currentMonth)));
+removeDays(getLastDay(calendarMonth, getMonthIndex(calendarMonth)));
 
 // switches current month (0-11) and year YYYY and updates variables
 function switchMonth(indexMonth,year){
     
     // sets new month as global variable
-    currentMonth = monthArray[indexMonth];
+    calendarMonth = monthArray[indexMonth];
     // updates display month
-    document.getElementById("current-month-display").textContent = currentMonth;
-
-    currentYear = year;
-    // updates year display
-    document.getElementById("current-year-display").innerText = year;
-
+    calendarYear = year;
+    updateDisplay(calendarMonth,calendarYear);
 }
 
-
-switchMonth(1,2028);
 main();
+switchMonth(5,2023);
