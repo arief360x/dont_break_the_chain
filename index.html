@@ -23,10 +23,19 @@
 
             <div class="calendar-header">
                 <!-- Current month and date -->
-                <div>
-                    <span id="current-month-display">January</span>
-                    <span id="current-year-display">2022</span> 
-                </div>
+                <!-- initial date and month gets setup with JS setUpInitialDate() -->
+               
+                    <button class=calendar--left-button onclick="previousMonth()">
+                        <a><</a>
+                    </button>
+                    <section>
+                        <span id="current-month-display"></span>
+                        <span id="current-year-display"></span>
+                    </section>
+                    <button class="calendar--right-button" onclick="nextMonth()">
+                       <a>></a>
+                    </button>
+                
             </div>
             
             <!-- days of the week -->
@@ -50,12 +59,15 @@
                 <span>F</span>
                 <span>S</span>
             </ol>
+            <!-- creates a container for styling and a start "anchor" for alignment -->
            
-            <!-- creates a container for styling and a start and end "anchor" for alignment -->
-            <ol class="calendar-days">
-                <a id="calendar-start">1</a>
-                <a id="calendar-end">1</a>
+            <ol id="calendar-container" class="calendar-days">
+                
             </ol>
+        </div>
+
+        <div class="display">
+            <div id="display-variables"></div>
         </div>
 
         <!-- testing different entry type

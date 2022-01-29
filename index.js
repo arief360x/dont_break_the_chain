@@ -1,33 +1,45 @@
-//Months array
+//Array of months of the year
 let monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-
-//Sets global variables for future
+//Sets global variables for future use
 let calendarMonth = "";
 let calendarYear = "";
 let counter = "";
 
-// updates header displayed given a month and a year 
-function updateDisplay(month, year) {
-    document.getElementById("current-month-display").innerText = month;
-    document.getElementById("current-year-display").innerText = year;
+
+
+// gets today's date and returns the day
+function getToday(){
+    var today = new Date();
+    var day = today.getDate();
+    console.log("🚀 ~ file: index.js ~ line 28 ~ getToday ~ day", day)
+    return day;
+}
+
+// gets current month date ruturns index (0-11)
+function getCalendarMonth(){
+    var today = new Date();
+    var monthIndex = today.getMonth();
+    var month = monthArray[monthIndex];
+    console.log("🚀 ~ file: index.js ~ line 38 ~ getCalendarMonth ~ month", month)
+    return month;
+}
+    
+
+// gets today's year in YYYY format
+function getCalendarYear(){
+    var today = new Date();
+    var year = (today.getYear()+1900);
+    console.log("🚀 ~ file: index.js ~ line 45 ~ getCalendarYear ~ year", year)
+    return year;
 }
 
 
 //Returns index (0-11) given a month
 function getMonthIndex(month) {
     var index = monthArray.findIndex(monthArray => monthArray === month);
-    //console.log("getMonthIndex " + index)
+    console.log("🚀 ~ file: index.js ~ line 53 ~ getMonthIndex ~ index", index)
     return index;
-}
-
-//Return the day's index(start from 0) with the argument year = normal, month = start from 0, day = normal
-function getDayIndex(year, month, day) {
-    var full_date = new Date();
-    full_date.setFullYear(year, month, day);
-    res = full_date.getDay();
-    console.log("getDay " + res);
-    return res;
 }
 
 //Return the last day of the month(month argument start with 0), return real date
@@ -35,82 +47,123 @@ function getLastDay(year, month) {
     var date = new Date();
     date.setFullYear(year, month, 1);
     var lastDay = new Date(date.getFullYear(), (date.getMonth() + 1), 0);
-
     lastDay = lastDay.getDate();
-    console.table("last day " + lastDay);
+    console.log("🚀 ~ file: index.js ~ line 63 ~ getLastDay ~ lastDay", lastDay)
     return lastDay;
 }
 
-// gets today's date and returns the day
-function getToday(){
-    var today = new Date();
-    var dd = today.getDate();
-    return dd;
+// updates header displayed given a month and a year 
+function updateDisplay(month, year) {
+    document.getElementById("current-month-display").innerText = month;
+    console.log("🚀 ~ file: index.js ~ line 69 ~ updateDisplay ~ month", month)
+    document.getElementById("current-year-display").innerText = year;
+    console.log("🚀 ~ file: index.js ~ line 69 ~ updateDisplay ~ year", year)   
 }
 
-// index can be any number from 1 to 7
-// function sets the start of the calendar accordingly
-// index should be added by 1
-function setFirstDay(index){
-    index++;
-    document.getElementById("calendar-start").style.gridColumnStart = index;
-    console.log("First day is " + "works");
+//Return the day's index(start from 0) with the argument year = normal, month = start from 0, day = normal
+function getDayIndex(year, monthIndex, day) {
+    var full_date = new Date();
+    full_date.setFullYear(year, monthIndex, day);
+    res = full_date.getDay();
+    console.log("🚀 ~ file: index.js ~ line 83 ~ getDayIndex ~ res", res) 
+    return res;
 }
-
-// function adds styling to buttons from given index
-function removeDays(lastDay) {
-    const calendarDays = document.getElementsByClassName("calendar--day");
-    for (let i = lastDay; i < 31; i++) {
-        calendarDays[i].style.display = "none";
-        console.log("removeDays work");
-    }
-}
-
 
 // function adds HTML element to addElementToScreen before ElementID
 // gets ElementID as reference point and HTML text is added before anchor
 function addElementToScreen (ElementID, HTMLText) {
-    document.getElementById(ElementID).insertAdjacentHTML("beforebegin",HTMLText);
-    console.log("Added ", HTMLText, "to ", ElementID);
+    document.getElementById(ElementID).insertAdjacentHTML("beforeend",HTMLText);
+    console.log("🚀 ~ file: index.js ~ line 94 ~ addElementToScreen ~ ElementID", ElementID)
 }
 
-
-// given an first day and last day draws days with numbers between first and last
+// given an first day and last day 
+// draws days with numbers between first and last
 function addDaysToCalendar (firstDay, lastDay) {
+    // prints rest of elements up to lastDay given
     for (let i = firstDay; i <= lastDay ; i++) {
-        let HTMLText = "<a>" + i + "</a>";
-        addElementToScreen("calendar-end",HTMLText);
-        console.log("print button works");
+        let HTMLText = '<a><section class="calendar-text">' + "" + i + '</section></a>';
+        addElementToScreen("calendar-container",HTMLText);
+        console.log("🚀 ~ file: index.js ~ line 103 ~ addDaysToCalendar ~ i", i)
     }
 } 
 
-function main(){
-    // calendar display function
-    setFirstDay(getDayIndex(calendarMonth,getMonthIndex(calendarMonth),1));
-    addDaysToCalendar (2,getLastDay(calendarMonth,getMonthIndex(calendarMonth,1)));
+// adds days of calendar
+// draws previous, current and next month
+function drawCalendar(){
+    
+    // variables used to drawCalendar();
+    // CAN BE SIMPLIFIED LATER
+    //Last day of current month (1-31)
+    let calendarLastDay = getLastDay(calendarYear,getMonthIndex(calendarMonth));
+    console.log("🚀 ~ file: index.js ~ line 12 ~ calendarLastDay", calendarLastDay)
+    // gets current month index (0-11)
+    let calendarMonthIndex = getMonthIndex(calendarMonth);
+    console.log("🚀 ~ file: index.js ~ line 15 ~ calendarMonthIndex", calendarMonthIndex)
+    // first day of the week index (0-6)
+    let firstDayMonthIndex = getDayIndex(calendarYear, calendarMonthIndex,1);
+    console.log("🚀 ~ file: index.js ~ line 18 ~ firstDayMonthIndex", firstDayMonthIndex)
+    // get last day of previous month (1-31)
+    let lastDayPreviousMonth = getLastDay(calendarYear,calendarMonthIndex-1);
+    console.log("🚀 ~ file: index.js ~ line 21 ~ lastDayPreviousMonth", lastDayPreviousMonth)
+    // get current month last day index (0-6)
+    let monthLastDayIndex = getDayIndex(calendarYear, calendarMonthIndex,calendarLastDay);
+    console.log("🚀 ~ file: index.js ~ line 24 ~ monthLastDayIndex", monthLastDayIndex)
+    document.getElementById("calendar-container").innerText = "";
+
+    // algorithm for calculating month days
+    // adds days for previous month
+    addDaysToCalendar(lastDayPreviousMonth-(firstDayMonthIndex-1),lastDayPreviousMonth);
+    // adds days for current month
+    addDaysToCalendar(1,calendarLastDay);
+    // adds days for next month
+    // uses index of current month last date and gets remaning days
+    addDaysToCalendar(1,Math.abs((monthLastDayIndex)-6));
+
+    // VARIABLES >>> FOR DEBUGGING PURPOSES
+    let variables = "<b>Variables </b>(for debugging purposes)</b> <br> <br> Month: <b>" + calendarMonth + "</b><br>Year: <b>" + calendarYear + "</b><br> Last day: <b>" + calendarLastDay + "</b><br> Month Index (0-11): <b>" + calendarMonthIndex + "</b><br> First day index (0-6): <b>" + firstDayMonthIndex + "</b><br> Last day index (0-6): <b>" + monthLastDayIndex + "</b><br> Previous month last day:  <b>" + lastDayPreviousMonth + "</b><br>"; 
+    document.getElementById("display-variables").insertAdjacentHTML("beforeend", variables);
+    console.log("🚀 ~ file: index.js ~ line 117 ~ displayVariables ~ variables", variables)
 }
-
-
-// gets date from input and returns YYYY-MM
-
-function getDateInput(){
-    let choosenMonth = document.querySelector('input[type="month"]');
-    console.log("hello",choosenMonth);
-    console.log(choosenMonth.value);
-    return choosenMonth.value;
-}
-
-removeDays(getLastDay(calendarMonth, getMonthIndex(calendarMonth)));
 
 // switches current month (0-11) and year YYYY and updates variables
-function switchMonth(indexMonth,year){
-    
+function updateCalendar(indexMonth,year){
+    if (indexMonth > 11){
+        indexMonth = 0;
+        year++;
+        
+    }
+    else if (indexMonth < 0){
+        indexMonth = 11;
+        year = year - 1;
+    }
     // sets new month as global variable
     calendarMonth = monthArray[indexMonth];
     // updates display month
     calendarYear = year;
     updateDisplay(calendarMonth,calendarYear);
+    drawCalendar();
+    // displayVariables();
 }
 
-main();
-switchMonth(5,2023);
+// gets current month and year
+// updates header display
+// draws calendar
+function initialSetup (){
+    calendarMonth = getCalendarMonth();
+    calendarYear = getCalendarYear();
+    updateDisplay(calendarMonth,calendarYear);
+    drawCalendar();
+}
+
+// initial setup using date provided by device
+initialSetup();
+
+// updates calendar to display next month
+function nextMonth(){
+    updateCalendar(getMonthIndex(calendarMonth)+1,calendarYear)
+}
+
+// updates calendar to display previous month
+function previousMonth(){
+    updateCalendar(getMonthIndex(calendarMonth)-1,calendarYear)
+}

@@ -32,7 +32,7 @@ body {
 main {
     display: grid;
     place-items: center;
-    height: 100vh;
+    height: 150vh;
     background-color: var(--light-gray);
 }
 
@@ -47,15 +47,13 @@ main {
     max-width: 600px;
     margin: 0 auto;
     background-color: var(--white-smoke);
-
-
+    margin: 12px;
 }
 
 /* calendar header */
 .calendar-header {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     font-size: var(--big);
@@ -64,7 +62,35 @@ main {
     border-radius: 12px 12px 0px 0px;
     border: none;
     color: var(--white-smoke);
+    padding: 0 40px;
     
+}
+
+.calendar-header button {
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border:  none;
+    background-color: var(--white-smoke);
+    color: var(--blue);
+    font-size: var(--big);
+    font-weight: bold;;
+}
+
+.calendar-header .calendar--left-button a {
+    margin-right: 4px;
+}
+
+.calendar-header .calendar--right-button a {
+    margin-left: 4px;
+}
+
+.calendar-header button:hover {
+
+    background-color: var(--green-yellow);
+    color: var(--white-smoke);
+
 }
 
 /* header for month and year */
@@ -92,9 +118,14 @@ main {
 
 
 /* styles for days of the month (day ) */
-.calendar-days a {
-    border-radius: 8px;
+.calendar-days .calendar-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    box-sizing: border-box;
     height: 40px;
+    border-radius: 8px;
     border: none;
     min-width: 30px;
     max-width: 100px;
@@ -105,23 +136,25 @@ main {
 }
 
 /* when mouse hovers day changes color */
-.calendar-days a:hover {
+.calendar-days .calendar-text:hover {
     background-color: var(--gray);
     cursor: pointer;
 }
 
 /* after being clicked changes color */
-.calendar-days a:active {
+.calendar-days .calendar-text:active {
     background-color: var(--green-yellow);
 }
 
-/* styles  added to the first day of the month */
-#calendar-start {
-    background-color: var(--blue-turquoise);
+/* adds a log at the bottom of the screen */
+.display {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--green-yellow);
+    padding: 24px;
+    border-radius: 12px;
+    width: 200px;
+    height: auto;
+    text-align: left;
 }
 
-
-/* first day ef the following month */
-#calendar-end {
-    background-color: var(--gray);
-}
