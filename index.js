@@ -1,11 +1,21 @@
 //Months array
 let MONTH_ARRAY = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+
 //Global variable for month from HTML tag
-let CALENDAR_MONTH = document.getElementById("current_month").textContent;
+let CALENDAR_MONTH = document.getElementById("current-month-display").textContent;
 
 //Global variable for year from HTML tag
-let CALENDAR_YEAR = document.getElementById("current_year").textContent;
+let CALENDAR_YEAR = document.getElementById("current-year-display").textContent;
+
+// updates header displayed given a month and a year 
+
+function updateDisplay(month, year) {
+    document.getElementById("current-month-display").innerText = month;
+    document.getElementById("current-year-display").innerText = year;
+}
+
+
 
 //Get HTML month tag, index start from 0
 function getHtmlMonthIndex(month) {
@@ -105,9 +115,15 @@ function getDateInput(){
 
 // switches month displayed for a given index (0-11)
 function switchMonth(indexMonth){
-    calendarMonth = MONTH_ARRAY[indexMonth];
-    document.getElementById("current_month").innerHTML = calendarMonth;
+    let display = "June";
+    let CALENDAR_MONTH = document.getElementById("current-month-display").textContent;
+    
 
 }
+
+
 main();
-switchMonth(0);
+// switchMonth(4);
+
+updateDisplay("Hello","Thisworks");
+drawCalendar();
