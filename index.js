@@ -100,3 +100,13 @@ function getDateInput(){
 }
 
 removeDays(getLastDay(CALENDAR_YEAR, getHtmlMonthIndex(CALENDAR_MONTH)));
+
+
+
+/**
+function 
+
+
+
+ */
+
