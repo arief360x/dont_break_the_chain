@@ -21,20 +21,25 @@
         <div class="calendar-container">
 
 
-            <div class="calendar-header">
+            <div class="calendar-header-container">
                 <!-- Current month and date -->
                 <!-- initial date and month gets setup with JS setUpInitialDate() -->
-               
-                    <button class=calendar--left-button onclick="previousMonth()">
-                        <a><</a>
-                    </button>
-                    <section class="calendar-header-text-container">
-                        <span id="current-month-display"></span>
-                        <span id="current-year-display"></span>
+                    <section>
+                        <button class=calendar--left-button onclick="previousMonth()">
+                            <a><</a>
+                        </button>
                     </section>
-                    <button class="calendar--right-button" onclick="nextMonth()">
-                       <a>></a>
-                    </button>
+                    
+                    <section class="calendar-header-text-container">
+                        <span id="current-year-display"></span>
+                        <span id="current-month-display"></span>
+                    </section>
+                    <section>
+                        <button class="calendar--right-button" onclick="nextMonth()">
+                            <a>></a>
+                         </button>
+                    </section>
+
                 
             </div>
             
