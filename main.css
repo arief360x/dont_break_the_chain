@@ -9,9 +9,12 @@
     --white-smoke: #F5F5F5;
     --pale-turquoise: #E0FFFF;
     --light-gray: #DCDCDC;
+    --extra-small: 1.rem;
     --small: 1.4rem;
-    --regular: 1.6;
-    --big: 4.0rem;
+    --regular: 1.8rem;
+    --big: 2.4rem;
+    --extra-big: 4.0rem;
+
 }
 
 /* sets 1.0rem to 10px (relative) */
@@ -31,9 +34,7 @@ body {
 }
 /* aligns items vertically */
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid; 
     justify-content: center;
     background-color: var(--light-gray);
 }
@@ -43,10 +44,10 @@ main {
 .calendar-container {
     border: 4px solid var(--blue);
     border-radius: 16px;
-    min-width: 300px;
-    max-width: 600px;
+    width: 90vw;
+    max-width: 500px;
     background-color: var(--white-smoke);
-    margin: 12px;
+    margin: 24px;
 }
 
 /* calendar header */
@@ -55,13 +56,14 @@ main {
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
-    font-size: var(--big);
+    font-size: var(--extra-big);
     height: 100px;
     background-color: var(--blue);
     border-radius: 12px 12px 0px 0px;
     border: none;
     color: var(--white-smoke);
     padding: 0 40px;
+    
     
 }
 
@@ -73,17 +75,18 @@ main {
     gap: 12px;
     /* border: 1px solid var(--white-smoke); */
     height: 50px;
+    margin: auto 24px;
 }
 
 .calendar-header button {
 
-    width: 48px;
-    height: 48px;
+    min-width: 44px;
+    height: 44px;
     border-radius: 50%;
     border:  none;
     background-color: var(--white-smoke);
     color: var(--blue);
-    font-size: var(--big);
+    font-size: var(--extra-big);
     font-weight: bold;;
 }
 
@@ -107,22 +110,33 @@ main {
     font-weight: bold;
 }
 
-/* aligns days of the week to the center */
-.days-week-container {
-    text-align: center;
-    align-items: center;
-}
-
 /* aligns elements of the calendar in 7 cuolumns */
 /* adds a gap between all items */
-.days-week-container, .calendar-days {
+.calendar-days, .days-week-container {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 8px;
     margin: 0;
     padding: 12px;
-    font-size: var(--regular);
+    font-size: var(--small);
     text-align: center;
+}
+
+
+/* style for days of the week mobile*/
+.days-week-mobile {
+    font-size: var(--big);
+    font-weight: bold;
+    /* border: 1px solid red; */
+    height: 24px;
+    margin-top: 8px;
+}
+
+/* style for days of the week full name*/
+.days-week-desktop {
+    font-size: var(--small);
+    /* border: 1px solid red; */
+    align-content: flex-end;
 }
 
 
@@ -149,6 +163,8 @@ main {
     background-color: var(--green-yellow);
     cursor: pointer;
     color: var(--white-smoke);
+    /* width: calc(100% + 4px);
+    height: calc(100% + 4px); */
 }
 
 /* after being clicked changes color */
