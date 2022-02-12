@@ -33,11 +33,19 @@ body {
     font-family: 'DM Sans', sans-serif;
     
 }
+
+
 /* aligns items vertically */
 main {
     display: grid; 
     justify-content: center;
     background-color: var(--background-color);
+}
+
+@media only screen and (max-width: 600px) {
+    .days-week-desktop span {
+        display: none;
+    }
 }
 
 /* container of the calendar */
@@ -72,7 +80,6 @@ main {
     box-sizing: border-box;
     padding: 12px auto;
     border: none;
- 
 }
 
 /* Month text size and weight */
@@ -111,7 +118,7 @@ main {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 8px;
-    margin: 0;
+    margin: 0px;
     padding: 12px;
     font-size: var(--small);
     text-align: center;
