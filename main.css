@@ -1,15 +1,16 @@
 /* adds CSS variables*/
 :root {
-    --blue: #4682B4;
-    --blue-turquoise: #00CED1;
+    --primary-color: #1d3557;
+    --secondary-color: #457b9d;
+    --background-color: #457b9d;
+    --white: #F5F5F5;
+    --dark-blue: #14213d;
+    --disabled-color: #e8e8e4;
     --gray-silver: #C0C0C0;
-    --green-yellow: #9ACD32;
-    --dark-green: #6B8E23;
-    --gray: #808080;
-    --white-smoke: #F5F5F5;
-    --pale-turquoise: #E0FFFF;
-    --light-gray: #DCDCDC;
-    --extra-small: 1.rem;
+    --dark-green: #9ACD32;
+    
+    
+    --extra-small: 1.0rem;
     --small: 1.4rem;
     --regular: 1.8rem;
     --big: 2.4rem;
@@ -33,30 +34,37 @@ body {
     font-family: 'DM Sans', sans-serif;
     
 }
+
+
 /* aligns items vertically */
 main {
     display: grid; 
     justify-content: center;
-    background-color: var(--light-gray);
+    background-color: var(--background-color);
+}
+
+@media only screen and (max-width: 600px) {
+    .days-week-desktop span {
+        display: none;
+    }
 }
 
 /* container of the calendar */
 /* align content using flexbox */
 .calendar-container {
-    border: 4px solid var(--blue);
+    border: 4px solid var(--primary-color);
     border-radius: 12px;
     width: 90vw;
     max-width: 650px;
-    background-color: var(--white-smoke);
-    margin: 20px;
-    /* border: 4px solid blue; */
+    background-color: var(--white);
+    margin: 24px;
 }
 
 /* calendar header */
 .calendar-header-container {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    background-color: var(--blue);
+    background-color: var(--primary-color);
     height: 100px;
     width: 100%;
     border: none;   
@@ -69,41 +77,41 @@ main {
     flex-direction: column;
     justify-content: center;
     font-size: var(--big);
-    color: var(--white-smoke);
+    color: var(--white);
     box-sizing: border-box;
     padding: 12px auto;
     border: none;
- 
 }
 
+/* Month text size and weight */
 #current-month-display {
     font-size: var(--extra-big);
     font-weight: bold;
 }
 
+/* Header flex */
 .calendar-header-container section {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
 }
 
-.calendar-header-container button {
-    background-color: var(--blue);
-    color: var(--white-smoke);
+/*  */
+.calendar-header-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--white);
     font-size: var(--extra-big);
     font-weight: bold;
-    width: 90%;
+    width: 100%;
     height: 100%;
-    border-radius: 12px;
-    border: none;
+    text-decoration: none;
+    text-align: center;
 }
 
-.calendar-header-container button:hover {
 
-    color: var(--gray-silver);
-    cursor: pointer;
-
-}
 
 /* aligns elements of the calendar in 7 cuolumns */
 /* adds a gap between all items */
@@ -111,7 +119,7 @@ main {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 8px;
-    margin: 0;
+    margin: 0px;
     padding: 12px;
     font-size: var(--small);
     text-align: center;
@@ -125,6 +133,7 @@ main {
     overflow: hidden;
     height: 24px;
     margin-top: 8px;
+    color: var(--dark-blue);
 }
 
 /* style for days of the week full name*/
@@ -132,6 +141,7 @@ main {
     font-size: var(--small);
     align-content: center;
     overflow: hidden;
+    color: var(--dark-blue);
 }
 
 /* styles for days of the month (day ) */
@@ -141,7 +151,7 @@ main {
     align-items: center;
     margin-top: 0;
     box-sizing: border-box;
-    height: 40px;
+    height: 50px;
     border-radius: 8px;
     border: none;
     min-width: 30px;
@@ -150,26 +160,25 @@ main {
     font-size: var(--regular);
     background-color: var(--gray-silver);
     font-weight: bold;
+    color: var(--dark-blue);
 }
 
 /* when mouse hovers day changes color */
-.calendar-days .calendar-text:hover {
-    background-color: var(--green-yellow);
+.calendar-days .calendar-days-enabled {
+    background-color: var(--secondary-color);
     cursor: pointer;
-    color: var(--white-smoke);
-    /* width: calc(100% + 4px);
-    height: calc(100% + 4px); */
+    color: var(--white);
 }
 
-/* after being clicked changes color */
+/* after being clicked changes color
 .calendar-days .calendar-text:active {
     background-color: var(--dark-green);
-}
+} */
 
 /* styling for disabled days */
 .calendar-days .calendar-days-disabled {
     color: var(--gray-silver);
-    background-color: var(--light-gray);
+    background-color: var(--disabled-color);
 }
 
 /* styling for completed days */
@@ -188,13 +197,13 @@ main {
 /* styling for disabled days when hovering*/
 .calendar-days .calendar-days-disabled:hover {
     color: var(--gray-silver);
-    background-color: var(--light-gray);
+    background-color: var(--disabled-color);
     cursor: default;
 }
 
 /* adds a log at the bottom of the screen */
 .display {
-    background-color: var(--pale-turquoise);
+    background-color: var(--disabled-color);
     padding: 24px;
     border-radius: 12px;
     width: 200px;

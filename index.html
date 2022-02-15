@@ -13,11 +13,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://img.icons8.com/doodle/48/000000/apple-calendar--v2.png">
-
+    
 </head>
 
 <body>
+    <div id="display-test">
+    </div>
     <main>
+        
         <div class="calendar-container">
 
 
@@ -25,9 +28,7 @@
                 <!-- Current month and date -->
                 <!-- initial date and month gets setup with JS setUpInitialDate() -->
                     <section>
-                        <button class=calendar--left-button onclick="previousMonth()">
-                            <a><</a>
-                        </button>
+                        <a class=calendar--left-button onclick="previousMonth()" href="#"><</a>
                     </section>
                     
                     <section class="calendar-header-text-container">
@@ -35,9 +36,7 @@
                         <span id="current-month-display"></span>
                     </section>
                     <section>
-                        <button class="calendar--right-button" onclick="nextMonth()">
-                            <a>></a>
-                         </button>
+                        <a class="calendar--right-button" onclick="nextMonth()" href="#">></a></a>
                     </section>
 
                 
@@ -77,6 +76,7 @@
         <div class="display">
             <div id="display-variables"><b>Variables</b>(for debugging purposes)</b><p></div>
         </div>
+        
     </main>
     
     <script type="text/javascript" src="index.js"></script>
