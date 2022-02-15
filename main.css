@@ -14,6 +14,7 @@
     --regular: 1.8rem;
     --big: 2.4rem;
     --extra-big: 3.2rem;
+    --warning-red: #DC143C;
 
 }
 
@@ -169,6 +170,19 @@ main {
 .calendar-days .calendar-days-disabled {
     color: var(--gray-silver);
     background-color: var(--light-gray);
+}
+
+/* styling for completed days */
+.calendar-days .calendar-days-completed {
+    color: var(--white-smoke);
+    background-color: var(--dark-green);
+}
+
+
+/* styling for not completed days */
+.calendar-days .calendar-days-notcompleted {
+    color: var(--white-smoke);
+    background-color: var(--warning-red);
 }
 
 /* styling for disabled days when hovering*/

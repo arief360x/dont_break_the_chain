@@ -5,8 +5,8 @@ let monthArray = ["January", "February", "March", "April", "May", "June", "July"
 let calendarMonth = "";
 let calendarYear = "";
 let counter = "";
+let monthStatusArray = ["fail","fail","success","fail","success","success","success","success","success","fail","success","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled","disabled"];
 
-// gets today's date and returns the day
 function getToday(){
     var today = new Date();
     var day = today.getDate();
@@ -76,13 +76,38 @@ function addElementToScreen (ElementID, HTMLText) {
 
 // given an first day and last day 
 // draws days with numbers between first and last
-function addDaysToCalendar (firstDay, lastDay,style) {
+// special style draws main calendars
+function addDaysToCalendar (firstDay, lastDay, style) {
+    if (style == "special") {
+        for (let i = firstDay; i <= lastDay ; i++) {
+            let htmlText = "";
+            // if array has a success status adds completed style
+            if (monthStatusArray[i-1]=="success") {
+                var HTMLText = '<a><section class="calendar-text calendar-days-completed">' + i + '</section></a>';
+            }
+             // if array has a success status adds notcompleted style
+            else if (monthStatusArray[i-1]=="fail") {
+                var HTMLText = '<a><section class="calendar-text calendar-days-notcompleted">' + i + '</section></a>';
+            }
+            // else it creates a normal days
+            else {
+                var HTMLText = '<a><section class="calendar-text">' + i + '</section></a>';  
+            }
+            addElementToScreen("calendar-container",HTMLText);
+            console.log("🚀 ~ file: index.js ~ line 103 ~ addDaysToCalendar ~ i", i)
+        }
+    }
+
+    else {
     // prints rest of elements up to lastDay given
     for (let i = firstDay; i <= lastDay ; i++) {
         let HTMLText = '<a><section class="calendar-text '+ style +'">' + i + '</section></a>';
         addElementToScreen("calendar-container",HTMLText);
         console.log("🚀 ~ file: index.js ~ line 103 ~ addDaysToCalendar ~ i", i)
+        }
     }
+    
+    
 } 
 
 // adds days of calendar
@@ -111,8 +136,14 @@ function drawCalendar(){
     // algorithm for calculating month days
     // adds days for previous month
     addDaysToCalendar(lastDayPreviousMonth-(firstDayMonthIndex-1),lastDayPreviousMonth,"calendar-days-disabled");
+ 
     // adds days for current month
-    addDaysToCalendar(1,calendarLastDay,);
+    // calculates the days to draw given array monthStatusArray
+    function colorDays(array){
+        addDaysToCalendar(1,calendarLastDay,"special")
+    }
+    colorDays(monthStatusArray)
+    
     // adds days for next month
     // uses index of current month last date and gets remaning days
     addDaysToCalendar(1,Math.abs((monthLastDayIndex)-6),"calendar-days-disabled");
