@@ -3,19 +3,22 @@
     --primary-color: #1d3557;
     --secondary-color: #457b9d;
     --background-color: #457b9d;
-    --white: #F5F5F5;
+    --white: #FFFAFA;
     --dark-blue: #14213d;
     --disabled-color: #e8e8e4;
-    --gray-silver: #C0C0C0;
+    --gray-silver: #D3D3D3;
     --dark-green: #9ACD32;
-    
-    
+    --light-green: #b5e48c;
+    --black: #14213d;
+    --warning-red: #f07167;    
+    --gold: #FFD700;
+    --light-gold: #FFFACD;
+
     --extra-small: 1.0rem;
     --small: 1.4rem;
     --regular: 1.8rem;
     --big: 2.4rem;
     --extra-big: 3.2rem;
-    --warning-red: #DC143C;
 
 }
 
@@ -32,7 +35,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'DM Sans', sans-serif;
-    
 }
 
 
@@ -160,20 +162,31 @@ main {
     font-size: var(--regular);
     background-color: var(--gray-silver);
     font-weight: bold;
-    color: var(--dark-blue);
+    color: var(--black);
 }
 
 /* when mouse hovers day changes color */
 .calendar-days .calendar-days-enabled {
-    background-color: var(--secondary-color);
+    border: 4px solid var(--gold);
     cursor: pointer;
+    color: var(--black);
+    background-color: var(--light-gold);
+}
+
+/* when mouse hovers day changes color */
+.calendar-days .calendar-days-enabled:hover {
+    background-color: var(--dark-green);
+    cursor: pointer;
+    border: none;
     color: var(--white);
 }
 
-/* after being clicked changes color
-.calendar-days .calendar-text:active {
+/* when mouse hovers day changes color */
+.calendar-days .calendar-days-enabled:active {
+    cursor: none;
+    color: var(--white);
     background-color: var(--dark-green);
-} */
+}
 
 /* styling for disabled days */
 .calendar-days .calendar-days-disabled {
@@ -183,22 +196,14 @@ main {
 
 /* styling for completed days */
 .calendar-days .calendar-days-completed {
-    color: var(--white-smoke);
-    background-color: var(--dark-green);
+    color: var(--black);
+    background-color: var(--light-green);
 }
-
 
 /* styling for not completed days */
 .calendar-days .calendar-days-notcompleted {
-    color: var(--white-smoke);
+    color: var(--black);
     background-color: var(--warning-red);
-}
-
-/* styling for disabled days when hovering*/
-.calendar-days .calendar-days-disabled:hover {
-    color: var(--gray-silver);
-    background-color: var(--disabled-color);
-    cursor: default;
 }
 
 /* adds a log at the bottom of the screen */
